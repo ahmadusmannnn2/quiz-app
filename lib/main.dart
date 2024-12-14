@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/quiz_provider.dart';
-import 'screens/start_screen.dart'; // Import halaman awal
+import 'screens/quiz_screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'UsmanQuiz👋',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const StartScreen(), // Halaman awal
+        home: const QuizScreen(),
       ),
     );
   }

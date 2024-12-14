@@ -4,7 +4,7 @@ import '../models/question.dart';
 import 'result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({Key? key}) : super(key: key);
+  const QuizScreen({super.key});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -73,7 +73,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       onPressed: () => _checkAnswer(option),
                       child: Text(option),
                     );
-                  }).toList(),
+                  }),
                 ],
               ),
             );
