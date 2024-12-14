@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/quiz_provider.dart';
+import 'start_screen.dart'; // Import halaman awal
 
 class ResultScreen extends StatelessWidget {
   final int score;
@@ -9,18 +12,23 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Result')),
+      appBar: AppBar(title: const Text('Hasil Quiz')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Your Score: $score/$total', style: const TextStyle(fontSize: 24)),
+            Text('Skor Anda: $score/$total', style: const TextStyle(fontSize: 24)),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                context.read<QuizProvider>().restartQuiz(); // Reset state
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const StartScreen()),
+                  (route) => false, // Hapus semua rute sebelumnya
+                );
               },
-              child: const Text('Restart Quiz'),
+              child: const Text('Mulai Ulang'),
             ),
           ],
         ),
