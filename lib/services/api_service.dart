@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 import '../models/question.dart';
 
 class ApiService {
-  final String baseUrl = 'https://opentdb.com/api.php?amount=10';
+  final String baseUrl =
+      'https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple';
 
   Future<List<Question>> fetchQuestions() async {
     try {
